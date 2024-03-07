@@ -1,0 +1,80 @@
+.defaultButtonCLass {
+    width: 140px;
+    height: 40px;
+    font-size: 12px;
+    text-align: center;
+    background-color: beige;
+}
+
+.defaultButtonCLass:hover {
+    background-color: bisque;
+    font-size: 14px;
+}
+
+.defaultButtonCLass:active {
+    color: beige;
+    font-size: 12px;
+}
+
+.notVisible {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.headerLabel {
+    background-color: transparent;
+    font-size: 24px;
+    -unity-text-align: upper-center;
+    color: bisque;
+}
+
+.defaultPanel {
+    width: 300px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    float: left;
+}
+
+.unity-base-field__label {
+    visibility: hidden;
+}
+
+.leftLabelLobby {
+    width: 298px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+}
+
+.rightLabelLobby {
+    color: rgb(255, 255, 255);
+    align-self: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 294px;
+    font-size: 14px;
+    height: auto;
+    -unity-text-align: upper-right;
+}
+
+.lobbyContainer {
+    flex-grow: 1;
+    flex-direction: row;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 1px;
+    border-left-width: 0;
+    padding-bottom: 5px;
+}

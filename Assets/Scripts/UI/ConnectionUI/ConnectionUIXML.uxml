@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/ConnectionUSS.uss?fileID=7433441132597879392&amp;guid=4816041dface4cf40ae1c5b2c7a7f766&amp;type=3#ConnectionUSS" />
+    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ConnectionLable" class="headerLabel" />
+    <ui:Button text="Connect Client" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ClientConnectButton" class="clientButtonCLass defaultButtonCLass" />
+    <ui:Button text="Host Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ServerConnectButton" class="clientButtonCLass defaultButtonCLass" />
+</ui:UXML>

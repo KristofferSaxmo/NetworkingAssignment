@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/MainMenuUI/MainMenuCSS.uss?fileID=7433441132597879392&amp;guid=56cfd91104a164649b940ed45444ec7d&amp;type=3#MainMenuCSS" />
+    <ui:VisualElement name="MainPanel" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; flex-basis: 50%; justify-content: center; align-items: center; align-self: auto; border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px;">
+        <ui:VisualElement name="Panel1" class="defaultPanel">
+            <ui:Button text="Host Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HostGameButton" class="defaultButtonCLass" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Panel2" class="defaultPanel" style="flex-direction: row;">
+            <ui:Button text="Client Join" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ClientJoinButton" class="defaultButtonCLass" />
+            <ui:TextField picking-mode="Ignore" name="JoinCodeField" style="-unity-text-align: middle-left; height: 38px; align-items: auto; justify-content: flex-start; left: 0; top: 1px; width: 194px; flex-direction: column;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Panel3" class="defaultPanel">
+            <ui:Button text="Lobbies" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LobbiesButton" class="defaultButtonCLass" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Panel4" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/MainMenuUI/MainMenuCSS.uss?fileID=7433441132597879392&amp;guid=56cfd91104a164649b940ed45444ec7d&amp;type=3#MainMenuCSS" />
+    <ui:VisualElement name="LobbyPanel" style="flex-grow: 1; height: auto; background-image: url(&quot;project://database/Assets/Art/blueB.jpg?fileID=2800000&amp;guid=c4ab66b8cdec4464d837dbac7ba178b0&amp;type=3#blueB&quot;); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;">
+        <ui:VisualElement name="LobbyHeader" style="flex-direction: row; flex-wrap: nowrap; align-items: flex-start; justify-content: flex-end; border-top-width: 0; border-right-width: 0; border-bottom-width: 2px; border-left-width: 0; border-left-color: rgba(255, 255, 255, 0.99); border-right-color: rgba(255, 255, 255, 0.99); border-top-color: rgba(255, 255, 255, 0.99); border-bottom-color: rgba(255, 255, 255, 0.99); padding-bottom: 2px; padding-top: 2px; align-self: center; width: 100%;">
+            <ui:Label tabindex="-1" text="Lobby" parse-escape-sequences="true" display-tooltip-when-elided="true" class="headerLabel" style="-unity-text-align: upper-left; align-self: flex-start; margin-right: auto; padding-left: 15px;" />
+            <ui:Button text="Refresh" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RefreshButton" />
+            <ui:Button text="Back" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackButton" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ListOfLobbies" style="flex-grow: 1; margin-top: 20px;">
+            <ui:ScrollView />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
