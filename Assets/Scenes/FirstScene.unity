@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: NetworkConfig.ConnectionApproval
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1567886513182069720, guid: 418de5633e7bd8e428f8e3b357c99115, type: 3}
+      propertyPath: NetworkConfig.Prefabs.NetworkPrefabsLists.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567886513182069720, guid: 418de5633e7bd8e428f8e3b357c99115, type: 3}
+      propertyPath: NetworkConfig.Prefabs.NetworkPrefabsLists.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3972c245c3504a045b816827167a8f7c, type: 2}
     - target: {fileID: 6563631043314393938, guid: 418de5633e7bd8e428f8e3b357c99115, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.42196858

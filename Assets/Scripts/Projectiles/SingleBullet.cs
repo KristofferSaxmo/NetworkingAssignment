@@ -16,7 +16,8 @@ public class SingleBullet : MonoBehaviour
 
     void KillBullet()
     {
-        if (gameObject) Destroy(gameObject);
+        if (gameObject)
+            Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other)

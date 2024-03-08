@@ -18,14 +18,21 @@ public class FiringAction : NetworkBehaviour
     }
 
     private void Fire(bool isShooting)
-    {
-
+    {   
         if (isShooting)
         {
             ShootLocalBullet();
         }
     }
+    
+    private void ShootLocalBullet()
+    {
+        GameObject bullet = Instantiate(clientSingleBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), transform.GetComponent<Collider2D>());
 
+        ShootBulletServerRpc();
+    }
+    
     [ServerRpc]
     private void ShootBulletServerRpc()
     {
@@ -40,14 +47,5 @@ public class FiringAction : NetworkBehaviour
         if (IsOwner) return;
         GameObject bullet = Instantiate(clientSingleBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), transform.GetComponent<Collider2D>());
-
-    }
-
-    private void ShootLocalBullet()
-    {
-        GameObject bullet = Instantiate(clientSingleBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), transform.GetComponent<Collider2D>());
-
-        ShootBulletServerRpc();
     }
 }
