@@ -10,6 +10,6 @@ public class SingleBulletDamage : MonoBehaviour
     {
         Health health = other.transform.GetComponent<Health>();
         if(health == null) return;
-        health.TakeDamage(50);
+        health.TakeDamage(damage);
     }
 }
