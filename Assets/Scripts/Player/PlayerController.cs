@@ -3,22 +3,21 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using static PlayerInput;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : NetworkBehaviour, IPlayerActions
 {
     private PlayerInput _playerInput;
-    private Vector2 _moveInput = new();
+    private Vector2 _moveInput;
     private Vector2 _cursorLocation;
 
-    private Transform _shipTransform;
     private Rigidbody2D _rb;
 
     private Transform turretPivotTransform;
 
-    private NetworkVariable<bool> _isMoving = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone,
-        NetworkVariableWritePermission.Owner);
+    private NetworkVariable<bool> _isMoving = new(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     private SpriteRenderer _spriteRenderer;
     
     public UnityAction<bool> onFireEvent;
@@ -28,12 +27,13 @@ public class PlayerController : NetworkBehaviour, IPlayerActions
     [SerializeField] private float shipRotationSpeed = 100f;
     [SerializeField] private float turretRotationSpeed = 4f;
     
+    [FormerlySerializedAs("movingSprites")]
     [Header("Sprites Settings")]
-    [SerializeField] private Sprite[] movingSprites;
-    [SerializeField] private Sprite stationarySprite;
+    [SerializeField] private Sprite[] animationSprites;
+    [SerializeField] private Sprite defaultSprite;
     [SerializeField] private float spriteChangeDelay = 0.2f;
     
-    private Coroutine spriteChangeCoroutine;
+    private Coroutine moveSpriteCoroutine;
     
     public override void OnNetworkSpawn()
     {
@@ -49,7 +49,6 @@ public class PlayerController : NetworkBehaviour, IPlayerActions
         _playerInput.Player.Enable();
 
         _rb = GetComponent<Rigidbody2D>();
-        _shipTransform = transform;
         turretPivotTransform = transform.Find("PivotTurret");
         if (turretPivotTransform == null) Debug.LogError("PivotTurret is not found", gameObject);
         
@@ -99,8 +98,8 @@ public class PlayerController : NetworkBehaviour, IPlayerActions
         int movingSpriteIndex = 0;
         while (true)
         {
-            _spriteRenderer.sprite = movingSprites[movingSpriteIndex];
-            movingSpriteIndex = (movingSpriteIndex + 1) % movingSprites.Length;
+            _spriteRenderer.sprite = animationSprites[movingSpriteIndex];
+            movingSpriteIndex = (movingSpriteIndex + 1) % animationSprites.Length;
             
             yield return new WaitForSeconds(spriteChangeDelay);
         }
@@ -113,15 +112,15 @@ public class PlayerController : NetworkBehaviour, IPlayerActions
 
     private void HandleIsMovingChanged(bool oldValue, bool newValue)
     {
-        if (newValue && spriteChangeCoroutine == null)
+        if (newValue && moveSpriteCoroutine == null)
         {
-            spriteChangeCoroutine = StartCoroutine(ChangeMovingSprite());
+            moveSpriteCoroutine = StartCoroutine(ChangeMovingSprite());
         }
-        else if (spriteChangeCoroutine != null)
+        else if (moveSpriteCoroutine != null)
         {
-            StopCoroutine(spriteChangeCoroutine);
-            spriteChangeCoroutine = null;
-            _spriteRenderer.sprite = stationarySprite;
+            StopCoroutine(moveSpriteCoroutine);
+            moveSpriteCoroutine = null;
+            _spriteRenderer.sprite = defaultSprite;
         }
     }
 }

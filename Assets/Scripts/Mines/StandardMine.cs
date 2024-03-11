@@ -19,8 +19,6 @@ public class StandardMine : NetworkBehaviour
             
        int xPosition = Random.Range(-4, 4);
        int yPosition = Random.Range(-2, 2);
-       
-       Debug.Log("Mine Exploded");
 
        GameObject newMine = Instantiate(minePrefab, new Vector3(xPosition, yPosition, 0), Quaternion.identity);
        NetworkObject no = newMine.GetComponent<NetworkObject>();
