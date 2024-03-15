@@ -15,7 +15,7 @@ public class StandardMine : NetworkBehaviour
        Health health = other.GetComponent<Health>();
        if(!health) return;
        
-       health.TakeDamage(25);
+       health.TakeDamage(25, ulong.MaxValue);
             
        int xPosition = Random.Range(-4, 4);
        int yPosition = Random.Range(-2, 2);

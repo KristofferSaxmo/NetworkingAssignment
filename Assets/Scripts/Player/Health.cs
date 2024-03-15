@@ -16,15 +16,14 @@ public class Health : NetworkBehaviour
     }
 
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, ulong sourceNetworkID)
     {
         if (!IsServer) return;
-        
-        Debug.Log("Player took damage!");
         
         currentHealth.Value -= damage;
         if (currentHealth.Value <= 0)
         {
+            KillTracker.Instance.AddKill(sourceNetworkID);
             Die();
         }
     }

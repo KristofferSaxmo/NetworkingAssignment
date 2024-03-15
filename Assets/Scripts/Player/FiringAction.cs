@@ -38,6 +38,7 @@ public class FiringAction : NetworkBehaviour
     {
         GameObject bullet = Instantiate(serverSingleBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), transform.GetComponent<Collider2D>());
+        bullet.GetComponent<SingleBulletDamage>().shooterNetworkID = OwnerClientId;
         ShootBulletClientRpc();
     }
 

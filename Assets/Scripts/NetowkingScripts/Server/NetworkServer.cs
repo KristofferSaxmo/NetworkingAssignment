@@ -30,6 +30,7 @@ public class NetworkServer
         response.Approved = true;
 
         SavedClientInformationManager.AddClient(userData);
+        
 
         response.CreatePlayerObject = true; // Theo
 
